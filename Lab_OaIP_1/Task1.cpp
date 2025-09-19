@@ -6,16 +6,16 @@ int main() {
 
 
 	for (int i = 0; i < 10; i++) {
-		std::wcout << L"Ââåäèòå ıëåìåíò " << i + 1 << ":";
+		std::wcout << L"Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã² " << i + 1 << ":";
 		std::cin >> mas[i];
 		sum += mas[i];
 	}
-	std::wcout << L"Ìàññèâ: ";
+	std::wcout << L"ÃŒÃ Ã±Ã±Ã¨Ã¢: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
-	std::wcout << std::endl << L"Ñóììà: " << sum << std::endl;
-	std::wcout << L"Ìèíèìàëüíûé ıëåìåíò: " << minEl(mas, 0) << std::endl;
+	std::wcout << std::endl << L"Ã‘Ã³Ã¬Ã¬Ã : " << sum << std::endl;
+	std::wcout << L"ÃŒÃ¨Ã­Ã¨Ã¬Ã Ã«Ã¼Ã­Ã»Ã© Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²: " << minEl(mas, 0) << std::endl;
 	for (int i = 0; i < 10; i++) {
 		for (int j = i; j < 9; j++) {
 			if (minEl(mas, i) == mas[j + 1]) {
@@ -23,18 +23,19 @@ int main() {
 			}
 		}
 	}
-	std::wcout << L"Îòñîğòèğîâàííûé ìàññèâ: ";
+	std::wcout << L"ÃÃ²Ã±Ã®Ã°Ã²Ã¨Ã°Ã®Ã¢Ã Ã­Ã­Ã»Ã© Ã¬Ã Ã±Ã±Ã¨Ã¢: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
 	return 0;
 }
 int minEl(int a[], int n) {
-	int min = 1000000;
+	int min = a[0];
 	for (int i = n; i < 10; i++) {
 		if (a[i] < min) {
 			min = a[i];
 		}
 	}
 	return min;
+
 }
