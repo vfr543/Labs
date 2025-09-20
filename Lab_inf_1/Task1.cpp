@@ -3,20 +3,21 @@
 int main()
 {
     double t;
-    setlocale(LC_ALL, "");
-    std::wcout << L"Ââåäèòå òåêóùóþ òåìïåðàòóðó: ";
+    setlocale(LC_ALL, "Rus");
+    std::cout << L"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚ÐµÐ¼Ð¿ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñƒ: ";
     std::cin >> t;
     if (t < 0) {
-        std::wcout << L"Íàäåíüòå çèìíþþ îäåæäó" << std::endl;
+        std::cout << L"ÐÐ°Ð´ÐµÐ½ÑŒÑ‚Ðµ Ð·Ð¸Ð¼Ð½ÑŽÑŽ Ð¾Ð´ÐµÐ¶Ð´Ñƒ" << std::endl;
     }
     else if (t >= 0 && t <= 10) {
-        std::wcout << L"Íàäåíüòå ò¸ïëóþ îäåæäó" << std::endl;
+        std::cout << L"ÐÐ°Ð´ÐµÐ½ÑŒÑ‚Ðµ Ñ‚Ñ‘Ð¿Ð»ÑƒÑŽ Ð¾Ð´ÐµÐ¶Ð´Ñƒ" << std::endl;
     }
     else if (t > 10 && t <= 20) {
-        std::wcout << L"Íàäåíüòå ë¸ãêóþ îäåæäó" << std::endl;
+        std::cout << L"ÐÐ°Ð´ÐµÐ½ÑŒÑ‚Ðµ Ð»Ñ‘Ð³ÐºÑƒÑŽ Ð¾Ð´ÐµÐ¶Ð´Ñƒ" << std::endl;
     }
     else {
-        std::wcout << L"Íàäåíüòå ëåòíþþ îäåæäó" << std::endl;
+        std::cout << L"ÐÐ°Ð´ÐµÐ½ÑŒÑ‚Ðµ Ð»ÐµÑ‚Ð½ÑŽÑŽ Ð¾Ð´ÐµÐ¶Ð´Ñƒ" << std::endl;
     }
     return 0;
+
 }
