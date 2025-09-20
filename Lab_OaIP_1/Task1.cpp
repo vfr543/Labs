@@ -2,20 +2,20 @@
 int minEl(int a[], int n);
 int main() {
 	int mas[10], sum = 0;
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "Russian");
 
 
 	for (int i = 0; i < 10; i++) {
-		std::wcout << L"Введите элемент " << i + 1 << ":";
+		std::cout << "Введите элемент " << i + 1 << ":";
 		std::cin >> mas[i];
 		sum += mas[i];
 	}
-	std::wcout << L"Массив: ";
+	std::cout << "Массив: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
-	std::wcout << std::endl << L"Сумма: " << sum << std::endl;
-	std::wcout << L"Минимальный элемент: " << minEl(mas, 0) << std::endl;
+	std::cout << std::endl << "Сумма: " << sum << std::endl;
+	std::cout << "Минимальный элемент: " << minEl(mas, 0) << std::endl;
 	for (int i = 0; i < 9; i++) {
 		for (int j = i; j < 9; j++) {
 			if (minEl(mas, i) == mas[j + 1]) {
@@ -23,7 +23,7 @@ int main() {
 			}
 		}
 	}
-	std::wcout << L"Отсортированный массив: ";
+	std::cout << "Отсортированный массив: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
@@ -39,4 +39,5 @@ int minEl(int a[], int n) {
 	return min;
 
 }
+
 
