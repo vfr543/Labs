@@ -6,16 +6,16 @@ int main() {
 
 
 	for (int i = 0; i < 10; i++) {
-		std::cout << L"Ââåäèòå ýëåìåíò " << i + 1 << ":";
+		std::cout << L"Введите элемент " << i + 1 << ":";
 		std::cin >> mas[i];
 		sum += mas[i];
 	}
-	std::cout << L"Ìàññèâ: ";
+	std::cout << L"Массив: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
-	std::cout << std::endl << L"Ñóììà: " << sum << std::endl;
-	std::cout << L"Ìèíèìàëüíûé ýëåìåíò: " << minEl(mas, 0) << std::endl;
+	std::cout << std::endl << L"Сумма: " << sum << std::endl;
+	std::cout << L"Минимальный элемент: " << minEl(mas, 0) << std::endl;
 	for (int i = 0; i < 10; i++) {
 		for (int j = i; j < 9; j++) {
 			if (minEl(mas, i) == mas[j + 1]) {
@@ -23,7 +23,7 @@ int main() {
 			}
 		}
 	}
-	std::cout << L"Îòñîðòèðîâàííûé ìàññèâ: ";
+	std::cout << L"Отсортированный массив: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
@@ -39,4 +39,5 @@ int minEl(int a[], int n) {
 	return min;
 
 }
+
 
