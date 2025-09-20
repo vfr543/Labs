@@ -3,12 +3,13 @@
 int main() {
     int stop, sum = 0;
     setlocale(LC_ALL, "");
-    std::wcout << L"Ââåäèòå êîë-âî îñòàíîâîê íà ìàðøðóòå: ";
+    std::wcout << L"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ðº: ";
     std::cin >> stop;
     for (int i = 0; i < stop; i++) {
         sum += 5;
     }
-    std::wcout << L"Ñóììà çà ïîåçäêó: ";
+    std::wcout << L"Ð¡Ñ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ð¿Ñ€Ð¾ÐµÐ·Ð´Ð°: ";
     std::cout << sum << std::endl;
     return 0;
+
 }
