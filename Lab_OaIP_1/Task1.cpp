@@ -2,20 +2,20 @@
 int minEl(int a[], int n);
 int main() {
 	int mas[10], sum = 0;
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "Rus");
 
 
 	for (int i = 0; i < 10; i++) {
-		std::wcout << L"Ââåäèòå ýëåìåíò " << i + 1 << ":";
+		std::cout << L"Ââåäèòå ýëåìåíò " << i + 1 << ":";
 		std::cin >> mas[i];
 		sum += mas[i];
 	}
-	std::wcout << L"Ìàññèâ: ";
+	std::cout << L"Ìàññèâ: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
-	std::wcout << std::endl << L"Ñóììà: " << sum << std::endl;
-	std::wcout << L"Ìèíèìàëüíûé ýëåìåíò: " << minEl(mas, 0) << std::endl;
+	std::cout << std::endl << L"Ñóììà: " << sum << std::endl;
+	std::cout << L"Ìèíèìàëüíûé ýëåìåíò: " << minEl(mas, 0) << std::endl;
 	for (int i = 0; i < 10; i++) {
 		for (int j = i; j < 9; j++) {
 			if (minEl(mas, i) == mas[j + 1]) {
@@ -23,7 +23,7 @@ int main() {
 			}
 		}
 	}
-	std::wcout << L"Îòñîðòèðîâàííûé ìàññèâ: ";
+	std::cout << L"Îòñîðòèðîâàííûé ìàññèâ: ";
 	for (int i = 0; i < 10; i++) {
 		std::cout << mas[i] << ' ';
 	}
@@ -39,3 +39,4 @@ int minEl(int a[], int n) {
 	return min;
 
 }
+
