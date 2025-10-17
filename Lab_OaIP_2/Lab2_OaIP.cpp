@@ -34,11 +34,11 @@ int main() {
     setlocale(LC_ALL, "Russian");
     char inp[500];
     char words[10][50];
-    cout << "Ââåäèòå 10 ñëîâ íà ëàòèíèöå ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 10 ÑÐ»Ð¾Ð² Ð½Ð° Ð»Ð°Ñ‚Ð¸Ð½Ð¸Ñ†Ðµ ";
     cin.getline(inp, 500);
     int wCount = splitString(inp, words);
     if (wCount < 10) {
-        cout << "Ñëîâ ìåíüøå 10";
+        cout << "Ð¡Ð»Ð¾Ð² Ð¼ÐµÐ½ÑŒÑˆÐµ 10";
     }
     int countb = 0;
     for (int i = 0; i < wCount; i++) {
@@ -47,7 +47,7 @@ int main() {
             countb++;
         }
     }
-    cout << "Êîë-âî ñëîâ, îêàí÷èâàþùèõñÿ íà b: " << countb << endl;
+    cout << "ÐšÐ¾Ð»-Ð²Ð¾ ÑÐ»Ð¾Ð², Ð¾ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ…ÑÑ Ð½Ð° b: " << countb << endl;
     int maxlen = 0;
     for (int i = 0; i < wCount; i++) {
         int len = strlen(words[i]);
@@ -55,7 +55,7 @@ int main() {
             maxlen = len;
         }
     }
-    cout << "Äëèíà ñàìîãî äëèííîãî ñëîâà: " << maxlen << endl;
+    cout << "Ð”Ð»Ð¸Ð½Ð° ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð´Ð»Ð¸Ð½Ð½Ð¾Ð³Ð¾ ÑÐ»Ð¾Ð²Ð°: " << maxlen << endl;
     char* lastWord = words[wCount - 1];
     int countd = 0;
     for (int i = 0; lastWord[i] != '\0'; i++) {
@@ -63,13 +63,13 @@ int main() {
             countd++;
         }
     }
-    cout << "Êîëè÷åñòâî áóêâ d â ïîñëåäíåì ñëîâå: " << countd << endl;
+    cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð±ÑƒÐºÐ² d Ð² Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¼ ÑÐ»Ð¾Ð²Ðµ: " << countd << endl;
     char upwords[500];
     strcpy_s(upwords, inp);
     for (int i = 0; upwords[i] != '\0'; i++) {
         upwords[i] = toupper(upwords[i]);
     }
-    cout << "Ñòðîêà â âåðõíåì ðåãèñòðå: " << upwords << endl;
+    cout << "Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð² Ð²ÐµÑ€Ñ…Ð½ÐµÐ¼ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ðµ: " << upwords << endl;
     int count = 0;
     for (int i = 0; i < wCount; i++) {
         int len = strlen(words[i]);
@@ -79,7 +79,7 @@ int main() {
             }
         }
     }
-    cout << "Êîëè÷åñòâî ñëîâ, ó êîòîðûõ ñîâïàäàåò âòîðîé è ïðåäïîñëåäíèé ñèìâîë: " << count << endl;
+    cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»Ð¾Ð², Ñƒ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¸ Ð¿Ñ€ÐµÐ´Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ ÑÐ¸Ð¼Ð²Ð¾Ð»: " << count << endl;
     
     int x = 0;
     int y = 0;
@@ -117,7 +117,7 @@ int main() {
             }
         }
     }
-    cout << "Ñàìàÿ äëèííàÿ îáùàÿ ïîäñòðîêà ìåæäó äâóìÿ ñëîâàìè â ïðåäëîæåíèè: ";
+    cout << "Ð¡Ð°Ð¼Ð°Ñ Ð´Ð»Ð¸Ð½Ð½Ð°Ñ Ð¾Ð±Ñ‰Ð°Ñ Ð¿Ð¾Ð´ÑÑ‚Ñ€Ð¾ÐºÐ° Ð¼ÐµÐ¶Ð´Ñƒ Ð´Ð²ÑƒÐ¼Ñ ÑÐ»Ð¾Ð²Ð°Ð¼Ð¸ Ð² Ð¿Ñ€ÐµÐ´Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸: ";
     for (int n = 0; n < mxlen; n++) { cout << mxch[n] << ' '; }
     return 0;
 }
