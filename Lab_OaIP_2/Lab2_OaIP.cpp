@@ -2,6 +2,40 @@
 #include <vector>
 #include <string>
 using namespace std;
+void longestCommonSubstring(const char* str1, const char* str2, char* result, int resultSize) {
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+
+    int maxLen = 0;
+    int startPos = 0;
+    for (int i = 0; i < len1; i++) {
+        for (int j = 0; j < len2; j++) {
+            if (str1[i] == str2[j]) {
+
+                int k = 0;
+                while (i + k < len1 && j + k < len2 && str1[i + k] == str2[j + k]) {
+                    k++;
+                }
+
+                if (k > maxLen) {
+                    maxLen = k;
+                    startPos = i;
+                }
+            }
+        }
+    }
+
+    if (maxLen > 0) {
+        int copyLen = (maxLen < resultSize - 1) ? maxLen : resultSize - 1;
+        strncpy_s(result, resultSize, &str1[startPos], copyLen);
+        result[copyLen] = '\0';
+    }
+    else {
+        result[0] = '\0';
+    }
+}
+
+
 int splitString(const char* str, char words[][50]) {
     int wCount = 0;
     int charInd = 0;
@@ -80,44 +114,17 @@ int main() {
         }
     }
     cout << "Количество слов, у которых совпадает второй и предпоследний символ: " << count << endl;
-    
-    int x = 0;
-    int y = 0;
-    int mxlen = 0;
-    int mxcount = 0;
-    int temp = 0;
-    char mxch[50];
-    char tmpch[50];
-    for (int i = 0; i < 9; i++) {
-        for (int j = i+1; j < 10; j++) {
-            y = 0;
-            x = 0;
-            while (x < strlen(words[i])) {
-                while (y < strlen(words[j])) {
-                    if (words[i][x] == words[j][y]) {
-                        tmpch[mxcount] = words[i][x];
-                        mxcount++;
-                        x++;
-                        temp++;
-                    }
-                    else {
-                        x -= temp;
-                        temp = 0;
-                        if (mxlen < mxcount) {
-                            for (int r = 0; r < mxcount; r++) {
-                                mxch[r] = tmpch[r];
-                            }
-                            mxlen = mxcount;
-                        }
-                        mxcount = 0;
-                    }
-                    y++;
-                }
-                x++;
+    char longestCommon[50] = "";
+    for (int i = 0; i < wCount; i++) {
+        for (int j = i + 1; j < wCount; j++) {
+            char common[50];
+            longestCommonSubstring(words[i], words[j], common, 50);
+
+            if (strlen(common) > strlen(longestCommon)) {
+                strcpy_s(longestCommon, common);
             }
         }
     }
-    cout << "Самая длинная общая подстрока между двумя словами в предложении: ";
-    for (int n = 0; n < mxlen; n++) { cout << mxch[n] << ' '; }
+    cout << "Самая длинная общая подстрока между двумя словами в предложении: " << longestCommon << endl;
     return 0;
 }
