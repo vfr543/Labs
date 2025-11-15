@@ -52,55 +52,55 @@ void fillFile() {
     ofstream file("products.txt");
     vector<Product> products;
 
-    cout << "Введите данные о продуктах (для завершения введите пустую строку в названии):" << endl;
-    toOut("Создание и заполнение файла продуктами:");
+    cout << "Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ Рѕ РїСЂРѕРґСѓРєС‚Р°С… (РґР»СЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РІРІРµРґРёС‚Рµ РїСѓСЃС‚СѓСЋ СЃС‚СЂРѕРєСѓ РІ РЅР°Р·РІР°РЅРёРё):" << endl;
+    toOut("РЎРѕР·РґР°РЅРёРµ Рё Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р° РїСЂРѕРґСѓРєС‚Р°РјРё:");
 
     while (true) {
         Product product;
 
-        cout << "Название продукта: ";
+        cout << "РќР°Р·РІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р°: ";
         getline(cin, product.name);
 
         if (product.name.empty()) {
             break;
         }
 
-        cout << "Цена: ";
+        cout << "Р¦РµРЅР°: ";
         cin >> product.price;
-        cout << "Количество: ";
+        cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ: ";
         cin >> product.quantity;
         cin.ignore();
         products.push_back(product);
-        string message = "Добавлен продукт: " + product.name + ", цена: " +
-            to_string(product.price) + ", количество: " +
+        string message = "Р”РѕР±Р°РІР»РµРЅ РїСЂРѕРґСѓРєС‚: " + product.name + ", С†РµРЅР°: " +
+            to_string(product.price) + ", РєРѕР»РёС‡РµСЃС‚РІРѕ: " +
             to_string(product.quantity);
         toOut(message);
 
-        cout << "Продукт добавлен!" << endl;
+        cout << "РџСЂРѕРґСѓРєС‚ РґРѕР±Р°РІР»РµРЅ!" << endl;
     }
 
     writeToFile(products);
-    toOut("Файл products.txt успешно создан и заполнен.");
-    cout << "Файл products.txt успешно создан и заполнен." << endl;
+    toOut("Р¤Р°Р№Р» products.txt СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ Рё Р·Р°РїРѕР»РЅРµРЅ.");
+    cout << "Р¤Р°Р№Р» products.txt СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ Рё Р·Р°РїРѕР»РЅРµРЅ." << endl;
 }
 
 void searchByName() {
     string searchName;
-    cout << "Введите название продукта для поиска: ";
+    cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р° РґР»СЏ РїРѕРёСЃРєР°: ";
     getline(cin, searchName);
     vector<Product> products = readFrFile();
     bool found = false;
-    toOut("Поиск продукта по названию: " + searchName);
+    toOut("РџРѕРёСЃРє РїСЂРѕРґСѓРєС‚Р° РїРѕ РЅР°Р·РІР°РЅРёСЋ: " + searchName);
 
     for (const auto& product : products) {
         if (product.name == searchName) {
-            cout << "Найден продукт: " << product.name
-                << ", цена: " << product.price
-                << ", количество: " << product.quantity << endl;
+            cout << "РќР°Р№РґРµРЅ РїСЂРѕРґСѓРєС‚: " << product.name
+                << ", С†РµРЅР°: " << product.price
+                << ", РєРѕР»РёС‡РµСЃС‚РІРѕ: " << product.quantity << endl;
 
-            string message = "Найден продукт: " + product.name +
-                ", цена: " + to_string(product.price) +
-                ", количество: " + to_string(product.quantity);
+            string message = "РќР°Р№РґРµРЅ РїСЂРѕРґСѓРєС‚: " + product.name +
+                ", С†РµРЅР°: " + to_string(product.price) +
+                ", РєРѕР»РёС‡РµСЃС‚РІРѕ: " + to_string(product.quantity);
             toOut(message);
             found = true;
             break;
@@ -108,8 +108,8 @@ void searchByName() {
     }
 
     if (!found) {
-        cout << "Продукт с названием '" << searchName << "' не найден." << endl;
-        toOut("Продукт не найден.");
+        cout << "РџСЂРѕРґСѓРєС‚ СЃ РЅР°Р·РІР°РЅРёРµРј '" << searchName << "' РЅРµ РЅР°Р№РґРµРЅ." << endl;
+        toOut("РџСЂРѕРґСѓРєС‚ РЅРµ РЅР°Р№РґРµРЅ.");
     }
 }
 
@@ -123,10 +123,10 @@ bool byQu(const Product& a, const Product& b) {
 
 void sortProducts() {
     int choice;
-    cout << "Выберите критерий сортировки:" << endl;
-    cout << "1 - по цене" << endl;
-    cout << "2 - по количеству" << endl;
-    cout << "Ваш выбор: ";
+    cout << "Р’С‹Р±РµСЂРёС‚Рµ РєСЂРёС‚РµСЂРёР№ СЃРѕСЂС‚РёСЂРѕРІРєРё:" << endl;
+    cout << "1 - РїРѕ С†РµРЅРµ" << endl;
+    cout << "2 - РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ" << endl;
+    cout << "Р’Р°С€ РІС‹Р±РѕСЂ: ";
     cin >> choice;
     cin.ignore();
 
@@ -134,29 +134,29 @@ void sortProducts() {
 
     if (choice == 1) {
         sort(products.begin(), products.end(), byPr);
-        toOut("Сортировка продуктов по цене.");
-        cout << "Продукты отсортированы по цене." << endl;
+        toOut("РЎРѕСЂС‚РёСЂРѕРІРєР° РїСЂРѕРґСѓРєС‚РѕРІ РїРѕ С†РµРЅРµ.");
+        cout << "РџСЂРѕРґСѓРєС‚С‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹ РїРѕ С†РµРЅРµ." << endl;
     }
     else if (choice == 2) {
         sort(products.begin(), products.end(), byQu);
-        toOut("Сортировка продуктов по количеству.");
-        cout << "Продукты отсортированы по количеству." << endl;
+        toOut("РЎРѕСЂС‚РёСЂРѕРІРєР° РїСЂРѕРґСѓРєС‚РѕРІ РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ.");
+        cout << "РџСЂРѕРґСѓРєС‚С‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹ РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ." << endl;
     }
     else {
-        cout << "Неверный выбор!" << endl;
-        toOut("Неверный выбор сортировки.");
+        cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ!" << endl;
+        toOut("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ СЃРѕСЂС‚РёСЂРѕРІРєРё.");
         return;
     }
 
     writeToFile(products);
-    cout << "Отсортированный список:" << endl;
-    toOut("Отсортированный список продуктов:");
+    cout << "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ СЃРїРёСЃРѕРє:" << endl;
+    toOut("РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ СЃРїРёСЃРѕРє РїСЂРѕРґСѓРєС‚РѕРІ:");
     for (const auto& product : products) {
-        cout << product.name << " - Цена: " << product.price
-            << " Количество: " << product.quantity << endl;
+        cout << product.name << " - Р¦РµРЅР°: " << product.price
+            << " РљРѕР»РёС‡РµСЃС‚РІРѕ: " << product.quantity << endl;
 
-        string message = product.name + " - Цена: " + to_string(product.price) +
-            " Количество: " + to_string(product.quantity);
+        string message = product.name + " - Р¦РµРЅР°: " + to_string(product.price) +
+            " РљРѕР»РёС‡РµСЃС‚РІРѕ: " + to_string(product.quantity);
         toOut(message);
     }
 }
@@ -164,54 +164,54 @@ void sortProducts() {
 void addToFile() {
     Product product;
 
-    cout << "Введите данные о новом продукте:" << endl;
-    cout << "Название: ";
+    cout << "Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ Рѕ РЅРѕРІРѕРј РїСЂРѕРґСѓРєС‚Рµ:" << endl;
+    cout << "РќР°Р·РІР°РЅРёРµ: ";
     getline(cin, product.name);
-    cout << "Цена: ";
+    cout << "Р¦РµРЅР°: ";
     cin >> product.price;
-    cout << "Количество: ";
+    cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ: ";
     cin >> product.quantity;
     cin.ignore();
     vector<Product> products = readFrFile();
     products.push_back(product);
     writeToFile(products);
-    string message = "Добавлен новый продукт: " + product.name +
-        ", цена: " + to_string(product.price) +
-        ", количество: " + to_string(product.quantity);
+    string message = "Р”РѕР±Р°РІР»РµРЅ РЅРѕРІС‹Р№ РїСЂРѕРґСѓРєС‚: " + product.name +
+        ", С†РµРЅР°: " + to_string(product.price) +
+        ", РєРѕР»РёС‡РµСЃС‚РІРѕ: " + to_string(product.quantity);
     toOut(message);
 
-    cout << "Продукт успешно добавлен!" << endl;
+    cout << "РџСЂРѕРґСѓРєС‚ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ!" << endl;
 }
 
 void showByPrice() {
     double maxPrice;
-    cout << "Введите максимальную цену: ";
+    cout << "Р’РІРµРґРёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ С†РµРЅСѓ: ";
     cin >> maxPrice;
     cin.ignore();
 
     vector<Product> products = readFrFile();
     bool found = false;
 
-    string message = "Поиск продуктов с ценой не более: " + to_string(maxPrice);
+    string message = "РџРѕРёСЃРє РїСЂРѕРґСѓРєС‚РѕРІ СЃ С†РµРЅРѕР№ РЅРµ Р±РѕР»РµРµ: " + to_string(maxPrice);
     toOut(message);
 
-    cout << "Продукты с ценой не более " << maxPrice << ":" << endl;
+    cout << "РџСЂРѕРґСѓРєС‚С‹ СЃ С†РµРЅРѕР№ РЅРµ Р±РѕР»РµРµ " << maxPrice << ":" << endl;
 
     for (const auto& product : products) {
         if (product.price <= maxPrice) {
-            cout << product.name << " - Цена: " << product.price
-                << " Количество: " << product.quantity << endl;
+            cout << product.name << " - Р¦РµРЅР°: " << product.price
+                << " РљРѕР»РёС‡РµСЃС‚РІРѕ: " << product.quantity << endl;
 
-            string outputMsg = product.name + " - Цена: " + to_string(product.price) +
-                " Количество: " + to_string(product.quantity);
+            string outputMsg = product.name + " - Р¦РµРЅР°: " + to_string(product.price) +
+                " РљРѕР»РёС‡РµСЃС‚РІРѕ: " + to_string(product.quantity);
             toOut(outputMsg);
             found = true;
         }
     }
 
     if (!found) {
-        cout << "Продукты с ценой не более " << maxPrice << " не найдены." << endl;
-        toOut("Продукты не найдены.");
+        cout << "РџСЂРѕРґСѓРєС‚С‹ СЃ С†РµРЅРѕР№ РЅРµ Р±РѕР»РµРµ " << maxPrice << " РЅРµ РЅР°Р№РґРµРЅС‹." << endl;
+        toOut("РџСЂРѕРґСѓРєС‚С‹ РЅРµ РЅР°Р№РґРµРЅС‹.");
     }
 }
 
@@ -219,34 +219,34 @@ void writeAllPr() {
     vector<Product> products = readFrFile();
 
     if (products.empty()) {
-        cout << "Файл products.txt пуст или не существует." << endl;
-        toOut("Попытка вывода всех продуктов: файл пуст или не существует.");
+        cout << "Р¤Р°Р№Р» products.txt РїСѓСЃС‚ РёР»Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚." << endl;
+        toOut("РџРѕРїС‹С‚РєР° РІС‹РІРѕРґР° РІСЃРµС… РїСЂРѕРґСѓРєС‚РѕРІ: С„Р°Р№Р» РїСѓСЃС‚ РёР»Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.");
         return;
     }
 
-    cout << "Все продукты:" << endl;
-    toOut("Вывод всех продуктов:");
+    cout << "Р’СЃРµ РїСЂРѕРґСѓРєС‚С‹:" << endl;
+    toOut("Р’С‹РІРѕРґ РІСЃРµС… РїСЂРѕРґСѓРєС‚РѕРІ:");
 
     for (const auto& product : products) {
-        cout << product.name << " - Цена: " << product.price
-            << " Количество: " << product.quantity << endl;
+        cout << product.name << " - Р¦РµРЅР°: " << product.price
+            << " РљРѕР»РёС‡РµСЃС‚РІРѕ: " << product.quantity << endl;
 
-        string message = product.name + " - Цена: " + to_string(product.price) +
-            " Количество: " + to_string(product.quantity);
+        string message = product.name + " - Р¦РµРЅР°: " + to_string(product.price) +
+            " РљРѕР»РёС‡РµСЃС‚РІРѕ: " + to_string(product.quantity);
         toOut(message);
     }
 }
 
 void showMenu() {
-    cout << "\n=== Меню управления продуктами ===" << endl;
-    cout << "1 - Создание и заполнение файла продуктами" << endl;
-    cout << "2 - Поиск продукта по названию" << endl;
-    cout << "3 - Сортировка продуктов" << endl;
-    cout << "4 - Добавление нового продукта" << endl;
-    cout << "5 - Вывод продуктов по максимальной цене" << endl;
-    cout << "6 - Вывод всех продуктов" << endl;
-    cout << "0 - Выход" << endl;
-    cout << "Выберите действие: ";
+    cout << "\n=== РњРµРЅСЋ СѓРїСЂР°РІР»РµРЅРёСЏ РїСЂРѕРґСѓРєС‚Р°РјРё ===" << endl;
+    cout << "1 - РЎРѕР·РґР°РЅРёРµ Рё Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р° РїСЂРѕРґСѓРєС‚Р°РјРё" << endl;
+    cout << "2 - РџРѕРёСЃРє РїСЂРѕРґСѓРєС‚Р° РїРѕ РЅР°Р·РІР°РЅРёСЋ" << endl;
+    cout << "3 - РЎРѕСЂС‚РёСЂРѕРІРєР° РїСЂРѕРґСѓРєС‚РѕРІ" << endl;
+    cout << "4 - Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ РїСЂРѕРґСѓРєС‚Р°" << endl;
+    cout << "5 - Р’С‹РІРѕРґ РїСЂРѕРґСѓРєС‚РѕРІ РїРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ С†РµРЅРµ" << endl;
+    cout << "6 - Р’С‹РІРѕРґ РІСЃРµС… РїСЂРѕРґСѓРєС‚РѕРІ" << endl;
+    cout << "0 - Р’С‹С…РѕРґ" << endl;
+    cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ";
 }
 
 int main() {
@@ -254,7 +254,7 @@ int main() {
     ofstream clearFile("output.txt");
     clearFile.close();
 
-    toOut("Программа запущена.");
+    toOut("РџСЂРѕРіСЂР°РјРјР° Р·Р°РїСѓС‰РµРЅР°.");
 
     int choice;
 
@@ -283,11 +283,11 @@ int main() {
             writeAllPr();
             break;
         case 0:
-            toOut("Программа завершена.");
+            toOut("РџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РµРЅР°.");
             break;
         default:
-            cout << "Неверный выбор! Попробуйте снова." << endl;
-            toOut("Неверный выбор в меню.");
+            cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ! РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°." << endl;
+            toOut("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ РІ РјРµРЅСЋ.");
             break;
         }
 
